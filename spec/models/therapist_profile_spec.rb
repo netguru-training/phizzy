@@ -5,10 +5,12 @@ RSpec.describe TherapistProfile, type: :model do
     expect(build(:therapist_profile)).to be_valid
   end
 
-  it { is_expected.to respond_to(:address) }
-  it { is_expected.to respond_to(:hours_from) }
-  it { is_expected.to respond_to(:hours_to) }
-  it { is_expected.to respond_to(:user) }
+  describe "attributes" do
+    it { is_expected.to respond_to(:address) }
+    it { is_expected.to respond_to(:hours_from) }
+    it { is_expected.to respond_to(:hours_to) }
+    it { is_expected.to respond_to(:user) }
+  end
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:address) }

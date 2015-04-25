@@ -7,9 +7,11 @@ RSpec.describe User, type: :model do
     expect(build(:user)).to be_valid
   end
 
-  it { is_expected.to respond_to(:firstname) }
-  it { is_expected.to respond_to(:lastname) }
-  it { is_expected.to respond_to(:profilable) }
+  describe "attributes" do
+    it { is_expected.to respond_to(:firstname) }
+    it { is_expected.to respond_to(:lastname) }
+    it { is_expected.to respond_to(:profilable) }
+  end
   
   describe "validations" do
     it { is_expected.to validate_presence_of(:firstname) }
