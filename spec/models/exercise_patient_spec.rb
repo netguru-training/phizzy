@@ -8,4 +8,4 @@ describe ExercisePatient do
     it { should validate_presence_of :repetitions }
 	
 	end
-  end
+end
