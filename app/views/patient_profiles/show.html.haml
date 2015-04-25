@@ -3,22 +3,25 @@
     .col-md-8
       %h3 Hello #{patient_profile.user.firstname}!
       %p
-        All your exercises for today:
-        %table.table.table-condensed.table-bordered.table-hover
-          %thead
-            %tr
-              %th Name
-              %th Description
-              %th Series
-              %th Repetitions
-          %tbody
-            //# user.profirable.exercises
-          - patient_profile.user.exercises.each do |e|
-            %tr
-              %th=e.name
-              %th=e.description
-              %th=e.exercise_patients.find_by_exercise_id(e.id).series_count
-              %th=e.exercise_patients.find_by_exercise_id(e.id).repetitions
+        All your exercises:
+        - if patient_profile.user.exercises.empty?
+          No exercises for today!
+        - else
+          %table.table.table-condensed.table-bordered.table-hover
+            %thead
+              %tr
+                %th Name
+                %th Description
+                %th Series
+                %th Repetitions
+            %tbody
+              //# user.profirable.exercises
+            - patient_profile.user.exercises.each do |e|
+              %tr
+                %th=e.name
+                %th=e.description
+                %th=e.exercise_patients.find_by_exercise_id(e.id).series_count
+                %th=e.exercise_patients.find_by_exercise_id(e.id).repetitions
     .col-md-4
       %h3 the rapist
       %p
