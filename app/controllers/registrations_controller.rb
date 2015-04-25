@@ -6,18 +6,11 @@ class RegistrationsController < Devise::RegistrationsController
     super
 
     if (params[:user][:profilable_type] == 'therapist')
-      therapist_profile.user = resource
-      therapist_profile.save
-      resource.profilable_id = therapist_profile.id
-      resource.profilable_type = 'therapist'
-      binding.pry
+      resource.profilable = therapist_profile
     elsif (params[:user][:profilable_type] == 'patient')
-      patient_profile.user = resource
-      patient_profile.save
-      resource.profilable_id = patient_profile.id
-      resource.profilable_type = 'patient'
+      resource.profilable = patient_profile
     end
-
     resource.save
+
   end
 end
