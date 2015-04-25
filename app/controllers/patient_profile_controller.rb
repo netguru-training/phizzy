@@ -1,25 +1,23 @@
 class PatientProfileController < ApplicationController
 	before_filter :check_user
+  expose(:patient_profile)
 
 	def show
-		@profile = current_user.patient_profile
 	end
 
 	def create
-		if PatientProfile.create(profile_params)
-			redirect_to @profile
+		if patient_profile.create(profile_params)
+			redirect_to patient_profile
 		end
 	end
 
 	def edit
-		@profile = PatientProfile.find(params[:id])
 	end
 
 	def update
-		@profile = PatientProfile.find(params[:id])
-		if @profile.update_params(profile_params)
+		if patient_profile.update_params(profile_params)
 			flash[:notice] = 'Profile updated'
-			redirect_to @profile
+			redirect_to patient_profile
 		else
 			render 'edit'
 		end

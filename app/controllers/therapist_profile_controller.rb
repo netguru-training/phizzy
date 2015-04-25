@@ -1,25 +1,23 @@
 class TherapistProfileController < ApplicationController
 	before_filter :check_user
+	expose(:therapist_profile)
 
 	def show
-		@profile = current_user.theraphist_profile
 	end
 
 	def create
-		if TheraphistProfile.create(profile_params)
-			redirect_to theraphist_profile_show(@profile)
+		if therapist_profile.create(profile_params)
+			redirect_to therapist_profile
 		end
 	end
 
 	def edit
-		@profile = TheraphistProfile.find(params[:id])
 	end
 
 	def update
-		@profile = TheraphistProfile.find(params[:id])
-		if @profile.update_params(profile_params)
+		if therapist_profile.update_params(profile_params)
 			flash[:notice] = 'Profile updated'
-			redirect_to @profile
+			redirect_to therapist_profile
 		else
 			render 'edit'
 		end
