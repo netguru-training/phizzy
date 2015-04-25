@@ -26,7 +26,7 @@ class PatientProfileController < ApplicationController
 	private	
 
 		def profile_params
-			params.require(:patient_profile).permit(:theraist_id)
+			params.require(:patient_profile).permit(:therapist_id)
 		end
 
 		def check_user
