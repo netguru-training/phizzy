@@ -7,6 +7,10 @@ RSpec.describe User, type: :model do
     expect(FactoryGirl.build(:user)).to be_valid
   end
 
+  it { is_expected.to respond_to(:firstname) }
+  it { is_expected.to respond_to(:lastname) }
+  it { is_expected.to respond_to(:profilable) }
+
   context "as a therapist" do
     let(:therapist_profile) { FactoryGirl.create(:therapist_profile) }
 

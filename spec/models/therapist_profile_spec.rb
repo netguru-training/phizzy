@@ -5,6 +5,11 @@ RSpec.describe TherapistProfile, type: :model do
     expect(FactoryGirl.build(:therapist_profile)).to be_valid
   end
 
+  it { is_expected.to respond_to(:address) }
+  it { is_expected.to respond_to(:hours_from) }
+  it { is_expected.to respond_to(:hours_to) }
+  it { is_expected.to respond_to(:user) }
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:address) }
     it { is_expected.to validate_presence_of(:hours_from) }

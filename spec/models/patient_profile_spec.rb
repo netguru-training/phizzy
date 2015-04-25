@@ -5,6 +5,8 @@ RSpec.describe PatientProfile, type: :model do
     expect(FactoryGirl.build(:patient_profile)).to be_valid
   end
 
+  it { is_expected.to respond_to(:user) }
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:user) }
   end
