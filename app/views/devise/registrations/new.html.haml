@@ -17,5 +17,21 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "off"
   .actions
+    = f.label :profile_id
+    %br/
+    = f.text_field :profile_id
+    %br/
+    = f.label :profile_type
+    %br/
+    = f.text_field :profile_type
+    %br/
+    = f.label :firstname
+    %br/
+    = f.text_field :firstname
+    %br/
+    = f.label :lastname
+    %br/
+    = f.text_field :lastname
+    %br/
     = f.submit "Sign up"
 = render "devise/shared/links"
