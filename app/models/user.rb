@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   belongs_to :profilable, polymorphic: true
 
   validates_presence_of :firstname, :lastname
+
+  def exercises
+    profilable.exercises
+  end
 end
