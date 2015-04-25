@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :therapist_profile do
     address "MyString"
-hours_from "2015-04-25 12:32:19"
-hours_to "2015-04-25 12:32:19"
+    hours_from "9:00"
+    hours_to "17:99"
+    user
   end
 
 end

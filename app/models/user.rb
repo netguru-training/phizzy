@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :profilable, polymorphic: true
+
+  validates_presence_of :firstname, :lastname
 end
