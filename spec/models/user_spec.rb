@@ -40,5 +40,14 @@ RSpec.describe User, type: :model do
     it "has a valid profile" do
       expect(user.profilable).to eq patient_profile
     end
+
+    describe "#exercises" do
+      let(:exercises_result) { double }
+      before do
+        allow(user.profilable).to receive(:exercises).and_return(exercises_result)
+      end
+
+      it { expect(user.exercises).to eq exercises_result }
+    end
   end
 end

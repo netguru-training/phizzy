@@ -6,6 +6,7 @@ RSpec.describe PatientProfile, type: :model do
   end
 
   it { is_expected.to respond_to(:user) }
+  it { is_expected.to respond_to(:exercises) }
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:user) }
