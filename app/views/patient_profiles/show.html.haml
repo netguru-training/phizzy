@@ -1,11 +1,9 @@
 .container
-  .page-header
-    %p
-      some text
   .row
     .col-md-8
       %h3 Hello #{patient_profile.user.firstname}
       %p
+        All your exercises for today.
         %table.table.table-condensed.table-bordered
           %thead
             %tr
@@ -14,4 +12,6 @@
           %tbody
     //#- each do
     .col-md-4
-      informations about therapist
+      %h3 therapist
+      %p
+        informations about therapist
