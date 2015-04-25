@@ -1,5 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Exercise, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+describe Exercise do
+  describe 'validations' do
+    it { should validate_presence_of :name }
+    it { should validate_presence_of :description }
+    end
+  end

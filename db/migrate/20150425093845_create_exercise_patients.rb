@@ -1,6 +1,6 @@
 class CreateExercisePatients < ActiveRecord::Migration
   def change
-    create_table :exercise_patients do |t|
+    create_table :exercise_patient do |t|
       t.integer :exercise_id
       t.integer :patient_id
       t.integer :seriescount
