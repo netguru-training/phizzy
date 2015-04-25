@@ -1,8 +1,9 @@
-class PatientProfileController < ApplicationController
+class PatientProfilesController < ApplicationController
 	before_filter :check_user
-  expose(:patient_profile)
+  expose(:patient_profile) { current_user.profilable }
 
 	def show
+
 	end
 
 	def create
@@ -30,7 +31,7 @@ class PatientProfileController < ApplicationController
 		end
 
 		def check_user
-			unless user_signer_in?
+			unless signed_in?
 				flash[:notice] = 'Please log in to view the profile'
 				redirect_to new_user_session_path
 			end
