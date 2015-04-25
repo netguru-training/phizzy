@@ -16,4 +16,8 @@ RSpec.describe TherapistProfile, type: :model do
     it { is_expected.to validate_presence_of(:hours_to) }
     it { is_expected.to validate_presence_of(:user) }
   end
+
+  describe "associations" do
+    it { is_expected.to have_one(:user) }
+  end
 end

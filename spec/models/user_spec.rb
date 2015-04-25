@@ -16,6 +16,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:lastname) }
   end
 
+  describe "associations" do
+    it { is_expected.to belong_to(:profilable) }
+  end
+
   context "as a therapist" do
     let(:therapist_profile) { create(:therapist_profile) }
 
