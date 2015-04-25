@@ -3,11 +3,7 @@
     .col-md-2
     .col-md-8
       - if signed_in?
-        %h3 Hello #{current_user.firstname}!
-        %p
-          and welcome to Phizzy!
+        = render 'logged'
       - else
-        %h3 Welcome!
-        %p
-          Welcome to Phizzy!
+        = render 'notlogged'
     .col-md-2
