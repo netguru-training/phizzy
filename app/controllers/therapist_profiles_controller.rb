@@ -1,4 +1,4 @@
-class TherapistProfileController < ApplicationController
+class TherapistProfilesController < ApplicationController
 	before_filter :check_user
 	expose(:therapist_profile)
 
