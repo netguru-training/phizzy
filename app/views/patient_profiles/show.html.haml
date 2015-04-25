@@ -1,10 +1,10 @@
 .container
   .row
     .col-md-8
-      %h3 Hello #{patient_profile.user.firstname}!
+      %h3 Hello #{patient_profile.firstname}!
       %p
         All your exercises:
-        - if patient_profile.user.exercises.empty?
+        - if patient_profile.profilable.user.exercises.empty?
           No exercises for today!
         - else
           %table.table.table-condensed.table-bordered.table-hover
@@ -16,7 +16,7 @@
                 %th Repetitions
             %tbody
               //# user.profirable.exercises
-            - patient_profile.user.exercises.each do |e|
+            - patient_profile.profilable.user.exercises.each do |e|
               %tr
                 %th=e.name
                 %th=e.description
