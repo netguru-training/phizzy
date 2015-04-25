@@ -1,9 +1,9 @@
 class TherapistProfilesController < ApplicationController
 	before_filter :check_user
-	expose(:therapist_profile)
+	expose(:therapist_profile) { current_user }
 
 	def show
-    if current_user.profilable.kind_of?(PatientProfile)
+    if current_user.profilable.kind_of?(PatientProfile) || current_user.profilable.nil?
       redirect_to patient_profile_path
     end
 	end
