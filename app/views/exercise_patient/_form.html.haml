@@ -1,0 +1,11 @@
+= render 'layouts/messages', object: exercise_patient  
+
+.row
+  .col-xs-3
+    =form_for exercise_patients do |f|   
+      .form-group
+        = f.label :series_count
+        = f.text_field : :series_count, class: 'form-control'
+        = f.label :repetitions
+        = f.text_field :repetitions 
+      = f.submit 'Save', class: 'btn btn-default'
