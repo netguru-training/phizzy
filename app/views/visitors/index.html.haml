@@ -2,7 +2,12 @@
   .row
     .col-md-2
     .col-md-8
-      %h3 Welcome!
-      %p
-        Welcome to Phizzy!
+      - if signed_in?
+        %h3 Hello #{current_user.firstname}!
+        %p
+          and welcome to Phizzy!
+      - else
+        %h3 Welcome!
+        %p
+          Welcome to Phizzy!
     .col-md-2
