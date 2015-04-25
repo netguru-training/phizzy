@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PatientProfile, type: :model do
   it "has a valid factory" do
-    expect(FactoryGirl.build(:patient_profile)).to be_valid
+    expect(build(:patient_profile)).to be_valid
   end
 
   it { is_expected.to respond_to(:user) }
