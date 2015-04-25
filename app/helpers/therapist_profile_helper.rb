@@ -1,0 +1,2 @@
+module TherapistProfileHelper
+end
