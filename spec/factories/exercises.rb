@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :exercise do
-    name "MyString"
-description "MyString"
+    name Faker::Lorem.word.capitalize
+    description Faker::Lorem.paragraph
   end
 
 end
