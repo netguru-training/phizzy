@@ -4,6 +4,8 @@
   %li= link_to 'Sign up', new_user_registration_path
 - else
   %li= link_to 'Profile', (current_user.profilable.kind_of?(PatientProfile) ? patient_profiles_path : therapist_profile_path)
+  -if current_user.profilable.kind_of?(TherapistProfile)
+    %li= link_to 'Exercises', exercises_path
   %li= link_to 'Sign out', destroy_user_session_path, method: :delete
 %li= link_to 'About', about_path
 %li= link_to 'Contact', contact_path
