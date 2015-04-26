@@ -1,4 +1,33 @@
-%h3
-  Hello #{current_user.firstname}!
-  %p
-    and welcome to Phizzy!
+.jumbotron
+  %h1 Phizzy! yo
+  %p.lead
+    Welcome to Phizzy! #{current_user.firstname}
+  .row
+    .col-lg-4
+      %h2
+        Your exercises
+      %p
+        Your exercises for today.
+        %br/
+        Or tomorrow
+      %p
+        %a.btn.btn-primary
+          Check out exercises!
+    .col-lg-4
+      %h2
+        Your therapist!
+      %p
+        Very nice man, yes yes
+        %br/
+        bardzo fajny pan tak
+      %p
+        %a.btn.btn-primary
+          Check out your therapist!
+    .col-lg-4
+      %h2
+        Contact us!
+      %p
+        If you like us, send us an e-mail saying so!
+      %p
+        %a.btn.btn-primary
+          Contact us, please!

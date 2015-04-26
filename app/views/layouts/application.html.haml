@@ -8,9 +8,18 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %header
+    .container
+      .masthead
+        %h3.text-muted
+          Phizzy!
+        %nav
+          %ul.nav.nav-justified
+            = render 'layouts/navigation_links'
+      =yield
+
+    -#%header
       = render 'layouts/navigation'
-    %main{:role => "main"}
+    -#%main{:role => "main"}
       = render 'layouts/messages'
       = yield
     %footer{:class => "footer"}

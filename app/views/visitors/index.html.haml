@@ -1,9 +1,4 @@
-.container-fluid
-  .row
-    .col-md-2
-    .col-md-8
-      - if signed_in?
-        = render 'logged'
-      - else
-        = render 'notlogged'
-    .col-md-2
+- if signed_in?
+  = render 'logged'
+- else
+  = render 'notlogged'
