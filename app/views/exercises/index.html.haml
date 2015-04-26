@@ -1,0 +1,13 @@
+%h1.exercise 
+  All exercises
+
+=link_to 'Add a New Exercise', new_exercise_path, class: "btn  btn-default "
+%p
+
+- exercises.each do |exercise|
+  .category
+    %strong= exercise.name
+    .meta
+      = link_to 'Show', category
+        | #{ link_to 'Edit', edit_exercise_path(exercise)}
+        | #{ link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?'}}
