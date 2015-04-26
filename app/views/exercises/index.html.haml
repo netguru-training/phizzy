@@ -1,12 +1,13 @@
 %h1.exercise 
   All exercises
 
-=link_to 'Add a New Exercise', new_exercise_path, class: "btn  btn-default "
 %p
+=link_to 'Add a New Exercise', new_exercise_path, class: "btn  btn-default "
 
 - exercises.each do |exercise|
   .category
-    %strong= exercise.name
+    %strong
+      = exercise.name
     .meta
       = link_to 'Show', category
         | #{ link_to 'Edit', edit_exercise_path(exercise)}
