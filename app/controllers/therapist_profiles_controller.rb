@@ -36,10 +36,20 @@ class TherapistProfilesController < ApplicationController
   end
 
   def add_exercise
-  	binding.pry
+  	if Exercise.create(exercise_params)
+  		flash[:notice] = 'Exercise created'
+  	else
+  		flash[:error] = 'Error creating exercise'
+  	end
+  	
+  	render 'show'
   end
 
   private	
+
+  	def exercise_params
+  		params.permit(:description, :name)
+  	end
 
     def profile_params
       params.require(:therapist_profile).permit(:address, :hours_from, :hours_to)

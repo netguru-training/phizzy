@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resource :exercises
 
 
-  post '/therapist_profile/corelate_exercises' => "therapist_profile#corelate_exercises"
-  post '/therapist_profile/add_exercise' => "therapist_profile#add_exercise"
+  post '/therapist_profile/corelate_excercises' => "therapist_profiles#corelate_exercises"
+  post '/therapist_profile/add_exercise' => "therapist_profiles#add_exercise"
 
 end
