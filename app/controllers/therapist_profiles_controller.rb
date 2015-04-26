@@ -23,7 +23,7 @@ class TherapistProfilesController < ApplicationController
   end
 
   def update
-    if therapist_profile.update_params(profile_params)
+    if therapist_profile.update_attributes(profile_params)
       flash[:notice] = 'Profile updated'
       redirect_to therapist_profile
     else

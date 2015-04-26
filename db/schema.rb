@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(version: 20150426114600) do
     t.integer  "therapist_profile_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "therapist_profiles", force: :cascade do |t|
     t.string   "address"
     t.string   "hours_from"
