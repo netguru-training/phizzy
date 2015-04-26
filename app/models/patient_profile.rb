@@ -7,9 +7,10 @@ class PatientProfile < ActiveRecord::Base
   validates_presence_of :user
 
   private
-  	def conditional_validate
-  		unless new_record?
-  			validates_presence_of :address, :hours_from, :hours_to, :user
-  		end
-  	end
+    def conditional_validate
+      unless new_record?
+        validates_presence_of :address, :hours_from, :hours_to, :user
+      end
+    end
 end
+

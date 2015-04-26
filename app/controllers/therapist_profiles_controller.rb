@@ -5,39 +5,40 @@ class TherapistProfilesController < ApplicationController
 	expose(:patients) { User.where(profilable_type: 'PatientProfile') }
 	expose(:exercises) { Exercise.all }
 
-	def show
+  def show
     if current_user.profilable.kind_of?(PatientProfile) || current_user.profilable.nil?
       redirect_to patient_profile_path
     end
 
-	def create
-		if therapist_profile.create(profile_params)
-			redirect_to therapist_profile
-		end
-	end
+  def create
+    if therapist_profile.create(profile_params)
+      redirect_to therapist_profile
+    end
+  end
 
-	def edit
-	end
+  def edit
+  end
 
-	def update
-		if therapist_profile.update_params(profile_params)
-			flash[:notice] = 'Profile updated'
-			redirect_to therapist_profile
-		else
-			render 'edit'
-		end
-	end
+  def update
+    if therapist_profile.update_params(profile_params)
+      flash[:notice] = 'Profile updated'
+      redirect_to therapist_profile
+    else
+      render 'edit'
+    end
+  end
 
-	private	
+  private	
 
-		def profile_params
-			params.require(:therapist_profile).permit(:address, :hours_from, :hours_to)
-		end
+    def profile_params
+      params.require(:therapist_profile).permit(:address, :hours_from, :hours_to)
+    end
 
-		def check_user
-			unless user_signed_in?
-				flash[:notice] = 'Please log in to view the profile'
-				redirect_to new_user_session_path
-			end
-		end
+    def check_user
+      unless user_signed_in?
+        flash[:notice] = 'Please log in to view the profile'
+        redirect_to new_user_session_path
+      end
+    end
 end
+

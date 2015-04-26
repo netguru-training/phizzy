@@ -12,3 +12,4 @@ class User < ActiveRecord::Base
     profilable.exercises
   end
 end
+

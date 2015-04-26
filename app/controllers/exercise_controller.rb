@@ -8,3 +8,4 @@ class ExerciseController < ApplicationController
   def delete
   end
 end
+

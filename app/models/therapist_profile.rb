@@ -3,3 +3,4 @@ class TherapistProfile < ActiveRecord::Base
 
   validates_presence_of :address, :hours_from, :hours_to, :user
 end
+

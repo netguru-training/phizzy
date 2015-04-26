@@ -15,10 +15,11 @@ describe ExercisePatient do
     it { should validate_presence_of :patient_profile_id }
     it { should validate_presence_of :series_count }
     it { should validate_presence_of :repetitions }
-	end
+  end
 
   describe "associations" do
     it { is_expected.to belong_to(:exercise) }
     it { is_expected.to belong_to(:patient_profile) }
   end
 end
+

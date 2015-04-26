@@ -1,5 +1,4 @@
 class ExercisePatientController < ApplicationController
-  
   def new
   end
 
@@ -9,3 +8,4 @@ class ExercisePatientController < ApplicationController
   def delete
   end
 end
+
