@@ -1,0 +1,16 @@
+.row
+  = form_tag('/therapist_profiles/add_excercises')
+    .col-xs-6
+      = patients.each do |patient|
+        = checkbox_tag :patients, multiple: true
+        = patient.firstname + " " + patient.lastname
+    .col-xs-6
+      = exercises.each do |exercise|
+        = checkbox_tag :exercises, multiple: true
+        = exercise.name
+        = exercise.descripton
+    .row
+      = submit_tag :add
+
+
+
