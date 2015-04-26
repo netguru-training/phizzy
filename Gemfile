@@ -37,7 +37,8 @@ group :development, :test do
 end
 group :production do
   gem 'rails_12factor'
-  gem 'wkhtmltopdf-heroku'
+  gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
+  #gem 'wkhtmltopdf-heroku'
 end
 group :test do
   gem 'capybara'
