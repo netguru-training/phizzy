@@ -3,7 +3,7 @@
     .col-xs-6
       - patients.each do |patient|
         = check_box_tag "patients[]", patient.id
-        = patient.full_name
+        = link_to patient.full_name, patient_profiles_path + '/' + patient.id.to_s
         %br/
     .col-xs-6
       - exercises.each do |exercise|
