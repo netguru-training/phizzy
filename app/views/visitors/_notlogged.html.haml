@@ -17,7 +17,19 @@
       %p
         =link_to 'Learn more!', about_path, class: 'btn btn-primary'
     .col-lg-4
-      %img{:src => 'http://placehold.it/300x400'}
+      .carousel.slide{:id=>"slide-images", :data => {:ride => "carousel"}}
+        .carousel-inner
+          .item.active
+            %img{:src => "http://www.patrickgavin.ie/wp-content/uploads/2014/02/therapist.jpg", :alt => ""}/
+          .item
+            %img{:src => "http://media.cmgdigital.com/shared/lt/lt_cache/thumbnail/960/img/photos/2012/04/01/5b/98/WyattGray-11_370626a.jpg", :alt => ""}/
+          .item
+            %img{:src => "http://www.procarefitness.com/wp-content/uploads/2012/07/occupational-therapy-273x288.jpg", :alt => ""}/
+
+          %a.left.carousel-control{:href => "#slide-images", :data => {:slide => "prev"}}
+            %span.glyphicon.glyphicon-chevron-left
+          %a.right.carousel-control{:href => "#slide-images", :data => {:slide => "next"}}
+            %span.glyphicon.glyphicon-chevron-right
     .col-lg-4
       %h2
         Contact
@@ -27,3 +39,5 @@
         Do it right away!
       %p
         =link_to 'Contact us please!!', contact_path, class: 'btn btn-primary'
+:javascript
+  $('slide-images').carousel();
