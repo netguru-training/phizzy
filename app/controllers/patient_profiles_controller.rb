@@ -2,6 +2,7 @@ class PatientProfilesController < ApplicationController
   before_filter :check_user
   before_action :check_profile_type, :only => [:index]
   expose(:patient_profile) { current_user }
+  expose(:patient) { User.find(params[:id]) }
 
   def index
   end
@@ -13,6 +14,12 @@ class PatientProfilesController < ApplicationController
         redirect_to patient_profiles_path
       end
     end
+
+    if patient.therapist.id != current_user.id
+      flash[:error] = "You are not this patient's therapist!"
+      redirect_to therapist_profile_path
+    end
+
   end
 
   def create
