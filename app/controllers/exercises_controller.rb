@@ -16,7 +16,7 @@ class ExercisesController < ApplicationController
   	  self.exercise = Exercise.new(exercise_params)
 
       if exercise.save
-        redirect_to exercises, notice: 'Exercise was successfully created.'
+        redirect_to exercise, notice: 'Exercise was successfully created.'
       else
         render action: 'new'
       end
