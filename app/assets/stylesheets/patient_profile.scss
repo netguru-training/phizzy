@@ -1,3 +1,8 @@
 // Place all the styles related to the PatientProfile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#motivational-message{
+  position: relative;
+    -webkit-animation: moving 5s infinite;
+    animation: moving 5s infinite;
+  }

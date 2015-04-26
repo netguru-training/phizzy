@@ -1,0 +1,2 @@
+module MotivationalMessagesHelper
+end
