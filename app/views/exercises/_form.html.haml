@@ -1,0 +1,11 @@
+= render 'layouts/messages', object: exercise
+
+.row
+  .col-xs-3
+    = form_for exercise do |f|   
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+        = f.label :description
+        = f.text_field :description 
+      = f.submit 'Save', class: 'btn btn-default'
