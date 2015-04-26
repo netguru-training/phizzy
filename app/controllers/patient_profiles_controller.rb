@@ -15,7 +15,7 @@ class PatientProfilesController < ApplicationController
       end
     end
 
-    if patient.therapist.id != current_user.id
+    if patient && patient.therapist.id != current_user.id
       flash[:error] = "You are not this patient's therapist!"
       redirect_to therapist_profile_path
     end
