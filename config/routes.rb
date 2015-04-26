@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resource :therapist_profile, only: [:show, :edit, :update, :create]
   resource :exercises
 
+  get '/about' => 'visitors#about'
+  get '/contact' => 'visitors#contact'
 
   post '/therapist_profile/corelate_excercises' => "therapist_profiles#corelate_exercises"
   post '/therapist_profile/add_exercise' => "therapist_profiles#add_exercise"

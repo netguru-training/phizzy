@@ -5,5 +5,5 @@
 - else
   %li= link_to 'Profile', (current_user.profilable.kind_of?(PatientProfile) ? patient_profiles_path : therapist_profile_path)
   %li= link_to 'Sign out', destroy_user_session_path, method: :delete
-%li= link_to 'About', '#'
-%li= link_to 'Contact', '#'
+%li= link_to 'About', about_path
+%li= link_to 'Contact', contact_path
