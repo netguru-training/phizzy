@@ -18,5 +18,6 @@ RSpec.describe PatientProfile, type: :model do
     it { is_expected.to have_one(:user) }
     it { is_expected.to have_many(:exercise_patients) }
     it { is_expected.to have_many(:exercises) }
+    it { is_expected.to belong_to(:therapist_profile) }
   end
 end

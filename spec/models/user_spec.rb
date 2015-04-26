@@ -33,6 +33,21 @@ RSpec.describe User, type: :model do
     it "has a valid profile" do
       expect(user.profilable).to eq therapist_profile
     end
+
+    describe "#therapist" do
+      it { expect(user.therapist).to be_nil }
+    end 
+
+    describe "#patients" do
+      let(:patient_user) { build(:user) }
+      let(:patient_profiles_result) { [build(:patient_profile, user: patient_user)] }
+
+      before do
+        allow(user.profilable).to receive(:patient_profiles).and_return(patient_profiles_result)
+      end
+
+      it { expect(user.patients).to eq [patient_user] }
+    end
   end
 
   context "as a patient" do
@@ -47,8 +62,24 @@ RSpec.describe User, type: :model do
       expect(user.profilable).to eq patient_profile
     end
 
+    describe "#therapist" do
+      let(:therapist_user) { build(:user) }
+      let(:therapist_result) { build(:therapist_profile, user: therapist_user) }
+
+      before do
+        allow(user.profilable).to receive(:therapist_profile).and_return(therapist_result)
+      end
+
+      it { expect(user.therapist).to eq therapist_user }
+    end
+
+    describe "#patients" do
+      it { expect(user.patients).to be_nil }
+    end
+
     describe "#exercises" do
       let(:exercises_result) { double }
+
       before do
         allow(user.profilable).to receive(:exercises).and_return(exercises_result)
       end
