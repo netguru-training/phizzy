@@ -2,11 +2,11 @@
   = form_tag('/therapist_profile/corelate_excercises') do
     .col-xs-6
       - patients.each do |patient|
-        = check_box_tag :patients, multiple: true
+        = check_box_tag "patients[]", patient.id
         = patient.firstname + " " + patient.lastname
     .col-xs-6
       - exercises.each do |exercise|
-        = check_box_tag :exercises, multiple: true
+        = check_box_tag "exercises[]", exercise.id
         = exercise.name
         = exercise.description
         %br

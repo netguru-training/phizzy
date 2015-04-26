@@ -32,7 +32,18 @@ class TherapistProfilesController < ApplicationController
   end
 
   def corelate_exercises
-  	bingding.pry
+    flash[:message] = "Created exercises for patients"
+  	exercise_patients.each do |id|
+      profile = User.find(id).profilable
+      exercises_for_patients.each do |exercise_id|
+        exercise = Exercise.find(exercise_id)
+        unless (ExercisePatient.create({ patient_profile: profile, exercise: exercise, series_count: 1, repetitions: 1 }))
+          flash[:message] = "Error committing exercises"
+        end
+      end
+    end
+
+    render 'show'
   end
 
   def add_exercise
@@ -46,6 +57,13 @@ class TherapistProfilesController < ApplicationController
   end
 
   private	
+    def exercises_for_patients
+      params[:exercises] 
+    end
+
+    def exercise_patients
+      params[:patients]
+    end
 
   	def exercise_params
   		params.permit(:description, :name)
