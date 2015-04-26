@@ -1,5 +1,5 @@
 .row
-  = form_tag('/therapist_profile/corelate_excercises')
+  = form_tag('/therapist_profile/corelate_excercises') do
     .col-xs-6
       - patients.each do |patient|
         = checkbox_tag :patients, multiple: true

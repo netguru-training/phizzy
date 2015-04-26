@@ -2,7 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
 
-    binding.pry
     if (params[:user][:profilable_type] == 'therapist')
       therapist_profile = TherapistProfile.new({ address: 'Please enter your address', hours_from: 'opened from', hours_to: 'opened to', user: resource })
       therapist_profile.save

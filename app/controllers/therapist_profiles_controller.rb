@@ -6,10 +6,11 @@ class TherapistProfilesController < ApplicationController
   expose(:exercises) { Exercise.all }
 
   def show
-  	binding.pry
+
     if current_user.profilable.kind_of?(PatientProfile) || current_user.profilable.nil?
-      redirect_to patient_profile_path(current_user.profilable)
+      redirect_to patient_profiles_path(current_user.profilable)
     end
+
   end
 
   def create
