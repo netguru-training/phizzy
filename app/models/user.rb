@@ -9,15 +9,15 @@ class User < ActiveRecord::Base
   validates_presence_of :firstname, :lastname
 
   def exercises
-    profilable.exercises
+    profilable.exercises if profilable_type == "PatientProfile"
   end
 
   def patients
-    profilable.patient_profiles.map(&:user)
+    profilable.patient_profiles.map(&:user) if profilable_type == "TherapistProfile"
   end
 
   def therapist
-    profilable.therapist_profile.user
+    profilable.therapist_profile.user if profilable_type == "PatientProfile"
   end
 end
 
