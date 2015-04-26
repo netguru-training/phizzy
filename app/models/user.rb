@@ -13,13 +13,17 @@ class User < ActiveRecord::Base
   end
 
   def patients
-    return nil unless profilable.patient_profiles
-    profilable.patient_profiles.map(&:user) if profilable_type == "TherapistProfile"
+    if profilable_type == "TherapistProfile" 
+      return nil unless profilable.patient_profiles
+      profilable.patient_profiles.map(&:user) if profilable_type == "TherapistProfile"
+    end
   end
 
   def therapist
-    return nil unless profilable.therapist_profile
-    profilable.therapist_profile.user if profilable_type == "PatientProfile"
+    if profilable_type == "PatientProfile"
+      return nil unless profilable.therapist_profile
+      profilable.therapist_profile.user if profilable_type == "PatientProfile"
+    end
   end
 end
 
