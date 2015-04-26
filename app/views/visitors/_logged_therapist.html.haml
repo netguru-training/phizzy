@@ -3,25 +3,15 @@
   %p.lead
     Welcome to Phizzy! #{current_user.firstname}
   .row
-    .col-lg-4
+    .col-lg-6
       %h2
-        Your exercises
+        Your dashboard
       %p
-        Your exercises for today.
-        %br/
-        Or tomorrow
+        Your patients and exercises
+        %br
       %p
-        =link_to 'Check out your exercises!', patient_profiles_path, class: 'btn btn-primary'
-    .col-lg-4
-      %h2
-        Your patients
-      %p
-        Very nice patients.
-        %br/
-        Very nice indeed.
-      %p
-        =link_to 'Check out your therapist!', '#', class: 'btn btn-primary'
-    .col-lg-4
+        =link_to 'Check out your dashboard', patient_profiles_path, class: 'btn btn-primary'
+    .col-lg-6
       %h2
         Contact us!
       %p
