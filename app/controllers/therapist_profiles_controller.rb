@@ -1,12 +1,12 @@
 class TherapistProfilesController < ApplicationController
 	before_filter :check_user
-	expose(:therapist_profile) { current_user }
+
+	expose(:therapist_profile) { current_user.profilable }
 
 	def show
     if current_user.profilable.kind_of?(PatientProfile) || current_user.profilable.nil?
       redirect_to patient_profile_path
     end
-	end
 
 	def create
 		if therapist_profile.create(profile_params)
@@ -33,7 +33,7 @@ class TherapistProfilesController < ApplicationController
 		end
 
 		def check_user
-			unless signed_in?
+			unless user_signed_in?
 				flash[:notice] = 'Please log in to view the profile'
 				redirect_to new_user_session_path
 			end
