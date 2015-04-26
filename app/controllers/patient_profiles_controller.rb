@@ -15,10 +15,19 @@ class PatientProfilesController < ApplicationController
       end
     end
 
+    if patient.profilable.kind_of?(TherapistProfile)
+      flash[:error] = "You can't make your therapist friends as your patients!"
+      redirect_to therapist_profile_path
+      return
+    end
+
     if !patient.therapist
       flash[:error] = "This patient has not yet been therapise'd."
       redirect_to therapist_profile_path
-    elsif patient.therapist.id != current_user.id
+      return
+    end
+
+    if patient.therapist.id != current_user.id
         flash[:error] = "You are not this patient's therapist!"
         redirect_to therapist_profile_path
     end
