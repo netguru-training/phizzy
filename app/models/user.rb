@@ -11,5 +11,13 @@ class User < ActiveRecord::Base
   def exercises
     profilable.exercises
   end
+
+  def patients
+    profilable.patient_profiles.map(&:user)
+  end
+
+  def therapist
+    profilable.therapist_profile.user
+  end
 end
 
