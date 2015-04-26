@@ -1,17 +1,17 @@
 class PatientProfilesController < ApplicationController
   before_filter :check_user
+  before_action :check_profile_type, :only => [:index]
   expose(:patient_profile) { current_user }
 
   def index
-    if current_user.profilable.kind_of?(TherapistProfile) || current_user.profilable.nil?
-      redirect_to therapist_profiles_path
-    end
   end
 
   def show
-    if current_user.id != params[:id]
-      flash[:error] = "You cannot visit this page."
-      redirect_to patient_profiles_path
+    if current_user.profilable.kind_of?(PatientProfile)
+      if current_user.id.to_s != params[:id].to_s
+        flash[:error] = "You cannot visit this page."
+        redirect_to patient_profiles_path
+      end
     end
   end
 
@@ -45,5 +45,11 @@ class PatientProfilesController < ApplicationController
         redirect_to new_user_session_path
       end
     end
+
+  def check_profile_type
+    if current_user.profilable.kind_of?(TherapistProfile) || current_user.profilable.nil?
+      redirect_to therapist_profile_path
+    end
+  end
 end
 

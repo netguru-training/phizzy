@@ -25,6 +25,12 @@
                 %th=e.exercise_patients.find_by_exercise_id(e.id).series_count
                 %th=e.exercise_patients.find_by_exercise_id(e.id).repetitions
     .col-md-4
-      %h3 therapist
+      %h3
+        %img{:src => 'http://www.sorrywatch.com/wp-content/uploads/2013/07/talk-to-your-doctor-small.jpg', :alt => 'therapist_image', :title => 'Therapist'}
+          %br/
+          Your
+          =link_to 'therapist', '#'
+          page!
       %p
-        information about therapist
+        Your therapist is really nice.
+
