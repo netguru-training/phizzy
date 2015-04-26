@@ -1,7 +1,7 @@
 class PatientProfilesController < ApplicationController
   before_filter :check_user
   before_action :check_profile_type, :only => [:index]
-  expose(:patient_profile) { current_user }
+  expose(:patient_profile) { current_user.decorate }
   expose(:patient) { User.find(params[:id]) }
 
   def index
