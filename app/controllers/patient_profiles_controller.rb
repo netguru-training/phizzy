@@ -5,6 +5,12 @@ class PatientProfilesController < ApplicationController
   expose(:patient) { User.find(params[:id]) }
 
   def index
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "exercises"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def show

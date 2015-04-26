@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    = wicked_pdf_stylesheet_link_tag "pdf"
+    = wicked_pdf_javascript_include_tag "number_pages"
+  %body{:onload => "number_pages"}
+    %table.table.table-condensed.table-bordered.table-hover{:border => '1px solid #fff'}
+      %thead
+        %tr
+          %th Name
+          %th Description
+          %th Series
+          %th Repetitions
+      %tbody
+        - patient_profile.profilable.user.exercises.each do |e|
+          %tr
+            %th=e.name
+            %th=e.description
+            %th=e.exercise_patients.find_by_exercise_id(e.id).series_count
+            %th=e.exercise_patients.find_by_exercise_id(e.id).repetitions

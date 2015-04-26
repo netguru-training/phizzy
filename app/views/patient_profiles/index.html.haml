@@ -6,10 +6,13 @@
     .col-md-8
       %h3 Hello #{patient_profile.full_name}!
       %p
-        All your exercises:
         - if patient_profile.profilable.user.exercises.empty?
           No exercises for today!
         - else
+          %p.text-left.para1
+            All your exercises:
+          %p.text-right.para2
+            = link_to 'Download as PDF', patient_profiles_path + '.pdf', class: 'btn btn-success'
           %table.table.table-condensed.table-bordered.table-hover
             %thead
               %tr

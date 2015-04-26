@@ -11,7 +11,7 @@ gem 'devise'
 gem 'draper'
 gem 'decent_exposure'
 gem 'decent_decoration'
-
+gem 'wicked_pdf'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -25,6 +25,7 @@ gem 'pg'
 group :development do
   gem 'better_errors'
   gem 'html2haml'
+  gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
@@ -36,6 +37,7 @@ group :development, :test do
 end
 group :production do
   gem 'rails_12factor'
+  gem 'wkhtmltopdf-heroku'
 end
 group :test do
   gem 'capybara'
