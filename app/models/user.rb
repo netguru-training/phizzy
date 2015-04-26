@@ -25,5 +25,10 @@ class User < ActiveRecord::Base
       profilable.therapist_profile.user if profilable_type == "PatientProfile"
     end
   end
+
+  def therapist=(user_therapist) 
+    return nil unless profilable_type == "PatientProfile"
+    profilable.update(therapist_profile: user_therapist.profilable)
+  end 
 end
 
