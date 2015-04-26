@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
   end
 
   def therapist
-    if profilable_type == "PatientProfile"
+    #if profilable_type == "PatientProfile"
+    if profilable.kind_of?(PatientProfile)
       return nil unless profilable.therapist_profile
       profilable.therapist_profile.user if profilable_type == "PatientProfile"
     end
