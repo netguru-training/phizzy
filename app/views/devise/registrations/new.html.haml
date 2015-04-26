@@ -1,10 +1,12 @@
+%br
 .container
   .row
     .col-md-4
     .col-md-4
-      %h2 Sign up
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: "well"}) do |f|
         = devise_error_messages!
+        .fieldset 
+          %legend Sign up
         .field
           = f.label :email
           %br/
