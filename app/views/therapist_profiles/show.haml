@@ -1,1 +1,12 @@
-%h1 Therapist profile
+.col-xs-12
+  %ul.nav.nav-tabs
+    %li{ :role => 'presentation' }
+      %h3 Profile
+      = render 'form'
+    %li{ :role => 'presentation' }
+      %h3 Patients
+      = render 'patients'
+    %li{ :role => 'presentation' }
+      %h3 Exercises
+      = render 'exercises'
+
