@@ -2,10 +2,20 @@ class PatientProfilesController < ApplicationController
 	before_filter :check_user
   expose(:patient_profile) { current_user }
 
+  def index
+		if current_user.profilable.kind_of?(TherapistProfile) || current_user.profilable.nil?
+			redirect_to therapist_profiles_path
+		end
+	end
+
 	def show
-    if current_user.profilable.kind_of?(TherapistProfile) || current_user.profilable.nil?
-      redirect_to therapist_profile_path
-    end
+    if current_user.id != params[:id]
+			flash[:error] = "You cannot visit this page."
+			redirect_to patient_profiles_path
+		end
+
+		
+
 	end
 
 	def create
@@ -19,8 +29,8 @@ class PatientProfilesController < ApplicationController
 
 	def update
 		if patient_profile.update_params(profile_params)
-			flash[:notice] = 'Profile updated'
-			redirect_to patient_profile
+			flash[:notice] = 'Your profile was successfully updated.'
+			redirect_to patient_profiles_path
 		else
 			render 'edit'
 		end
@@ -34,7 +44,7 @@ class PatientProfilesController < ApplicationController
 
 		def check_user
 			unless signed_in?
-				flash[:notice] = 'Please log in to view the profile'
+				flash[:notice] = 'Please log in to view the profile.'
 				redirect_to new_user_session_path
 			end
 		end
