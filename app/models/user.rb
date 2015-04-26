@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def therapist=(user_therapist) 
-    return nil unless profilable_type == "PatientProfile"
+    return false unless profilable.kind_of?(PatientProfile)
     profilable.update(therapist_profile: user_therapist.profilable)
   end 
 end

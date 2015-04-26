@@ -73,6 +73,15 @@ RSpec.describe User, type: :model do
       it { expect(user.therapist).to eq therapist_user }
     end
 
+    describe "#therapist=" do
+      let(:therapist_profile) { create(:therapist_profile) }
+      before do
+        user.therapist = therapist_profile.user
+      end
+
+      it { expect(user.therapist).to eq therapist_profile.user }
+    end
+
     describe "#patients" do
       it { expect(user.patients).to be_nil }
     end
