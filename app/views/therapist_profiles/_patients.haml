@@ -4,6 +4,7 @@
       - patients.each do |patient|
         = check_box_tag "patients[]", patient.id
         = patient.full_name
+        %br/
     .col-xs-6
       - exercises.each do |exercise|
         = check_box_tag "exercises[]", exercise.id
