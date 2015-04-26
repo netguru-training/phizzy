@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :patient_profiles, only: [:index, :show, :edit, :update, :create]
   resources :exercise_patient, only: [:new, :edit, :delete]
   resource :therapist_profile, only: [:show, :edit, :update, :create]
-  resource :exercises
+  resources :exercises
 
   get '/about' => 'visitors#about'
   get '/contact' => 'visitors#contact'

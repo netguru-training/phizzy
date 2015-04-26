@@ -1,14 +1,26 @@
-%h1.exercise 
+%h1.exercisehead
   All exercises
 
 %p
 =link_to 'Add a New Exercise', new_exercise_path, class: "btn  btn-default "
 
-- exercises.each do |exercise|
-  .category
-    %strong
-      = exercise.name
-    .meta
-      = link_to 'Show', category
-        | #{ link_to 'Edit', edit_exercise_path(exercise)}
-        | #{ link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?'}}
+%table.table.table-hover
+  %thead
+    %tr
+      %td
+        %strong Name
+      %td
+        %strong Description
+      %td
+      %td
+  - exercises.each do |exercise|
+    %tr
+      .exercise
+        %td
+          = exercise.name
+        %td
+          =exercise.description
+        %td
+          = link_to 'Edit', edit_exercise_path(exercise), class: "btn btn-warning"
+        %td
+          = link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger"

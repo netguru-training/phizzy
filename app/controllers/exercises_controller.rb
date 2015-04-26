@@ -12,11 +12,12 @@ class ExercisesController < ApplicationController
   	def edit
   	end
 
+
   	def create
   	  self.exercise = Exercise.new(exercise_params)
 
       if exercise.save
-        redirect_to exercise, notice: 'Exercise was successfully created.'
+        redirect_to exercises_url, notice: 'Exercise was successfully created.'
       else
         render action: 'new'
       end
