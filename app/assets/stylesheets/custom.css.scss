@@ -83,6 +83,10 @@ body {
   }
 }
 
+.not-resizable {
+  resize: vertical;
+}
+
 .para1 {
   float: left;
 }
