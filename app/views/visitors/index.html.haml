@@ -1,4 +1,4 @@
 - if signed_in?
-  = render 'logged'
+  = render (current_user.profilable.kind_of?(TherapistProfile) ? 'logged_therapist' : 'logged_patient')
 - else
   = render 'notlogged'

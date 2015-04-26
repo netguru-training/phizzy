@@ -1,0 +1,30 @@
+.jumbotron
+  %h1 Phizzy! yo
+  %p.lead
+    Welcome to Phizzy! #{current_user.firstname}
+  .row
+    .col-lg-4
+      %h2
+        Your exercises
+      %p
+        Your exercises for today.
+        %br/
+        Or tomorrow
+      %p
+        =link_to 'Check out your exercises!', patient_profiles_path, class: 'btn btn-primary'
+    .col-lg-4
+      %h2
+        Your therapist!
+      %p
+        Very nice man, yes yes
+        %br/
+        bardzo fajny pan tak
+      %p
+        =link_to 'Check out your therapist!', '#', class: 'btn btn-primary'
+    .col-lg-4
+      %h2
+        Contact us!
+      %p
+        If you like us, send us an e-mail saying so!
+      %p
+        =link_to 'Contact us please!!', contact_path, class: 'btn btn-primary'
