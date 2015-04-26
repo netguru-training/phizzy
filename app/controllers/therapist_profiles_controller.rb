@@ -2,7 +2,7 @@ class TherapistProfilesController < ApplicationController
   before_filter :check_user
 
   expose(:therapist_profile) { current_user.profilable }
-  expose(:patients) { User.where(profilable_type: 'PatientProfile') }
+  expose(:patients) { UserDecorator.decorate_collection(User.where(profilable_type: 'PatientProfile')) }
   expose(:exercises) { Exercise.all }
 
   def show
