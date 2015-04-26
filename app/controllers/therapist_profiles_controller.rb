@@ -32,13 +32,13 @@ class TherapistProfilesController < ApplicationController
   end
 
   def corelate_exercises
-    flash[:message] = "Created exercises for patients"
+    flash[:notice] = "Created exercises for patients"
   	exercise_patients.each do |id|
       profile = User.find(id).profilable
       exercises_for_patients.each do |exercise_id|
         exercise = Exercise.find(exercise_id)
         unless (ExercisePatient.create({ patient_profile: profile, exercise: exercise, series_count: 1, repetitions: 1 }))
-          flash[:message] = "Error committing exercises"
+          flash[:notice] = "Error committing exercises"
         end
       end
     end

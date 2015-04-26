@@ -1,22 +1,23 @@
 .row
-  .col-xs-6
+  .col-xs-12
     %h3 Existing exercises
     - exercises.each do |exercise|
       = exercise.name
       = exercise.description
+      %br
 
-  .col-xs-6
+  .col-xs-12
     %h3 Add exercise
     = form_tag('/therapist_profile/add_exercise') do
       = label_tag :name
       %br
-      = text_field_tag :name
+      = text_field_tag :name, "", class: 'form-control'
       %br
       = label_tag :description
       %br
-      = text_area_tag :description
+      = text_area_tag :description, "", class: 'form-control'
       %br
-      = submit_tag :add_exercise
+      = submit_tag :add_exercise, class: 'btn btn-default', style: 'width: 100%'
 
 
   
