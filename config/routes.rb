@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   resources :exercise_patient, only: [:new, :edit, :delete]
   resource :therapist_profile, only: [:show, :edit, :update, :create]
   resource :exercises
+
+
+  post '/therapist_profile/corelate_exercises' => "therapist_profile#corelate_exercises"
+  post '/therapist_profile/add_exercise' => "therapist_profile#add_exercise"
+
 end

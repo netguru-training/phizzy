@@ -6,8 +6,9 @@ class TherapistProfilesController < ApplicationController
   expose(:exercises) { Exercise.all }
 
   def show
+  	binding.pry
     if current_user.profilable.kind_of?(PatientProfile) || current_user.profilable.nil?
-      redirect_to patient_profile_path
+      redirect_to patient_profile_path(current_user.profilable)
     end
   end
 
@@ -27,6 +28,14 @@ class TherapistProfilesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def corelate_exercises
+  	bingding.pry
+  end
+
+  def add_exercise
+  	binding.pry
   end
 
   private	
