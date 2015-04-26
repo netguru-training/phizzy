@@ -2,6 +2,8 @@ class TherapistProfilesController < ApplicationController
 	before_filter :check_user
 
 	expose(:therapist_profile) { current_user.profilable }
+	expose(:patients) { User.where(profilable_type: 'PatientProfile') }
+	expose(:exercises) { Exercise.all }
 
 	def show
     if current_user.profilable.kind_of?(PatientProfile) || current_user.profilable.nil?
