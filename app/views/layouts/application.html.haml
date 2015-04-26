@@ -14,7 +14,7 @@
         %h3.text-muted
           Phizzy!
           - if signed_in?
-            %small Logged in as #{current_user.firstname}
+            %small Logged in as #{current_user.decorate.full_name}
         %nav
           %ul.nav.nav-justified
             = render 'layouts/navigation_links'

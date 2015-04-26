@@ -4,7 +4,7 @@
       =link_to 'Edit your profile!', edit_user_registration_path
   .row
     .col-md-8
-      %h3 Hello #{patient_profile.firstname + ' '+ patient_profile.lastname}!
+      %h3 Hello #{patient_profile.full_name}!
       %p
         All your exercises:
         - if patient_profile.profilable.user.exercises.empty?
