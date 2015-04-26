@@ -5,10 +5,11 @@ class TherapistProfilesController < ApplicationController
 	expose(:patients) { User.where(profilable_type: 'PatientProfile') }
 	expose(:exercises) { Exercise.all }
 
-  def show
-    if current_user.profilable.kind_of?(PatientProfile) || current_user.profilable.nil?
-      redirect_to patient_profile_path
-    end
+	def show
+    	if current_user.profilable.kind_of?(PatientProfile) || current_user.profilable.nil?
+      		redirect_to patient_profile_path
+    	end
+	end
 
   def create
     if therapist_profile.create(profile_params)
